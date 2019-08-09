@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 318708891}
   - component: {fileID: 318708890}
   m_Layer: 0
-  m_Name: Player
+  m_Name: BlackPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 1277631225}
   - component: {fileID: 1277631224}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: WhitePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
