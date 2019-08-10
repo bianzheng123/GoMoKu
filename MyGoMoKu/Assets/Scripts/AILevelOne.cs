@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AILevelOne : Player
 {
-    Dictionary<string, float> toScore = new Dictionary<string, float>();
-    float[,] score = new float[15, 15];
+    protected Dictionary<string, float> toScore = new Dictionary<string, float>();
+    protected float[,] score = new float[15, 15];
 
-    private void Start()
+    protected virtual void Start()
     {
         toScore.Add("_aa_", 100);
         toScore.Add("_aa", 50);
@@ -27,7 +27,7 @@ public class AILevelOne : Player
         toScore.Add("aaaaa", float.MaxValue);
     }
 
-    private void CheckOneLine(int[] pos, int[] offset,int chessType)
+    protected virtual void CheckOneLine(int[] pos, int[] offset,int chessType)
     {
         string str = "a";
 

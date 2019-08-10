@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 52885570}
   - component: {fileID: 52885569}
   m_Layer: 0
-  m_Name: PlayerAILevelOne
+  m_Name: AILevelOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5deb208d3eeb70f42b9dc5c1a0e45e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chessColor: 2
+  chessColor: 0
 --- !u!4 &52885570
 Transform:
   m_ObjectHideFlags: 0
@@ -317,6 +317,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &707292753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707292755}
+  - component: {fileID: 707292754}
+  m_Layer: 0
+  m_Name: AILevelTwo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &707292754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707292753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72bbd90182dd954b809b302844e88d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chessColor: 1
+--- !u!4 &707292755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707292753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6132821, y: 0.9181459, z: -37.238945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729184580
 GameObject:
@@ -521,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8847d227fd4214d9746eb1d766c310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chessColor: 1
+  chessColor: 2
 --- !u!4 &1277631225
 Transform:
   m_ObjectHideFlags: 0

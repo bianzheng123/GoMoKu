@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public ChessType chessColor;
 
-    protected virtual void FixedUpdate()
+    protected void FixedUpdate()
     {
         if(ChessBoard.Instance.turn == chessColor && ChessBoard.Instance.timer > 0.3f)
         {
