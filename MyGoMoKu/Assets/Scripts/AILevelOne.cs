@@ -27,14 +27,14 @@ public class AILevelOne : Player
         toScore.Add("aaaaa", float.MaxValue);
     }
 
-    private void CheckOneLine(int[] pos, int[] offset)
+    private void CheckOneLine(int[] pos, int[] offset,int chessType)
     {
         string str = "a";
 
         //加到右边
         for (int i = pos[0] + offset[0], j = pos[1] + offset[1]; (0 <= i && i < 15) && (0 <= j && j < 15); i += offset[0], j += offset[1])
         {
-            if (ChessBoard.Instance.grid[i, j] == (int)chessColor)
+            if (ChessBoard.Instance.grid[i, j] == chessType)
             {
                 str += "a";
             }else if (ChessBoard.Instance.grid[i,j] == 0)//这个位置上没有棋子
@@ -52,7 +52,7 @@ public class AILevelOne : Player
         //加左边
         for (int i = pos[0] - offset[0], j = pos[1] - offset[1]; (0 <= i && i < 15) && (0 <= j && j < 15); i -= offset[0], j -= offset[1])
         {
-            if (ChessBoard.Instance.grid[i, j] == (int)chessColor)
+            if (ChessBoard.Instance.grid[i, j] == chessType)
             {
                 str = "a" + str;
             }
@@ -78,10 +78,15 @@ public class AILevelOne : Player
     private void setScore(int[] pos)
     {
         score[pos[0], pos[1]] = 0;
-        CheckOneLine(pos,new int[2] { 0,1});
-        CheckOneLine(pos, new int[2] { 1, 0 });
-        CheckOneLine(pos, new int[2] { 1, 1 });
-        CheckOneLine(pos, new int[2] { 1, -1 });
+        CheckOneLine(pos,new int[2] { 0,1},1);
+        CheckOneLine(pos, new int[2] { 1, 0 },1);//代表黑棋的决策
+        CheckOneLine(pos, new int[2] { 1, 1 },1);
+        CheckOneLine(pos, new int[2] { 1, -1 },1);
+
+        CheckOneLine(pos, new int[2] { 0, 1 }, 2);//代表白棋的打分机制
+        CheckOneLine(pos, new int[2] { 1, 0 }, 2);
+        CheckOneLine(pos, new int[2] { 1, 1 }, 2);
+        CheckOneLine(pos, new int[2] { 1, -1 }, 2);
     }
 
     protected override void PlayChess()
