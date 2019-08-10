@@ -13,6 +13,7 @@ public class ChessBoard : MonoBehaviour
     public float timer = 0;
     public bool gameStart = true;
     Transform parent;
+    public Stack<Transform> chessStack = new Stack<Transform>();
 
     public static ChessBoard Instance
     {
@@ -50,22 +51,24 @@ public class ChessBoard : MonoBehaviour
         if(turn == ChessType.BLACK)
         {
             GameObject go = Instantiate(prefabs[0], new Vector2(pos[0] - 7, pos[1] - 7), Quaternion.identity);
+            chessStack.Push(go.transform);
             go.transform.SetParent(parent);
             grid[pos[0], pos[1]] = 1;
             if (CheckWinner(pos))
             {
-
+                GameEnd();
             }
             turn = ChessType.WHITE;
         }
         else if(turn == ChessType.WHITE)
         {
             GameObject go = Instantiate(prefabs[1], new Vector2(pos[0] - 7, pos[1] - 7), Quaternion.identity);
+            chessStack.Push(go.transform);
             go.transform.SetParent(parent);
             grid[pos[0], pos[1]] = 2;
             if (CheckWinner(pos))
             {
-
+                GameEnd();
             }
             turn = ChessType.BLACK;
         }
@@ -73,9 +76,72 @@ public class ChessBoard : MonoBehaviour
         return true;
     }
 
-    public bool CheckWinner(int []pos)
+    private void GameEnd()
     {
+        gameStart = false;
+        Debug.Log("赢了");
+    }
+
+    private bool CheckWinner(int []pos)
+    {
+        if (CheckOneLine(pos, new int[2] { 0, 1 })) return true;
+        if (CheckOneLine(pos, new int[2] { 1, 0 })) return true;
+        if (CheckOneLine(pos, new int[2] { 1, 1 })) return true;
+        if (CheckOneLine(pos, new int[2] { 1, -1 })) return true;
         return false;
+    }
+
+    private bool CheckOneLine(int []pos, int[] offset)
+    {
+        int lineNum = 1;
+
+        //加到右边
+        for(int i=pos[0] + offset[0],j=pos[1] + offset[1];(0 <= i && i < 15) && (0 <= j && j < 15);i += offset[0],j += offset[1])
+        {
+            if (grid[i,j] == (int)turn)
+            {
+                lineNum++;
+            }
+            else
+            {
+                break;
+            }
+
+        }
+
+        //加左边
+        for (int i = pos[0] - offset[0], j = pos[1] - offset[1]; (0 <= i && i < 15) && (0 <= j && j < 15); i -= offset[0], j -= offset[1])
+        {
+            if (grid[i, j] == (int)turn)
+            {
+                lineNum++;
+            }
+            else
+            {
+                break;
+            }
+
+        }
+
+        if (lineNum > 4)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void RetractChess()
+    {
+        if(chessStack.Count > 1)
+        {
+            Transform pos = chessStack.Pop();
+            grid[(int)pos.position.x + 7, (int)pos.position.y + 7] = 0;
+            Destroy(pos.gameObject);
+
+            pos = chessStack.Pop();
+            grid[(int)pos.position.x + 7, (int)pos.position.y + 7] = 0;
+            Destroy(pos.gameObject);
+        }
     }
 }
 
