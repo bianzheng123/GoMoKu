@@ -40,6 +40,11 @@ public class ChessBoard : MonoBehaviour
         timer += Time.deltaTime;
     }
 
+    /// <summary>
+    /// 判断是否能下棋以及是否胜利
+    /// </summary>
+    /// <param name="pos">下棋的位置</param>
+    /// <returns>是否能下棋</returns>
     public bool PlayChess(int[] pos)
     {
         if (!gameStart) return false;
@@ -79,7 +84,7 @@ public class ChessBoard : MonoBehaviour
     private void GameEnd()
     {
         gameStart = false;
-        Debug.Log("赢了");
+        Debug.Log(turn + "赢了");
     }
 
     private bool CheckWinner(int []pos)
