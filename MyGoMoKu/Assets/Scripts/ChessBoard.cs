@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChessBoard : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ChessBoard : MonoBehaviour
     public float timer = 0;
     public bool gameStart = false;
     Transform parent;
+    public Text winner;
     public Stack<Transform> chessStack = new Stack<Transform>();
 
     public static ChessBoard Instance
@@ -83,6 +85,20 @@ public class ChessBoard : MonoBehaviour
 
     private void GameEnd()
     {
+        winner.transform.parent.parent.gameObject.SetActive(true);
+        switch (turn)
+        {
+            case ChessType.WATCH:
+                break;
+            case ChessType.BLACK:
+                winner.text = "黑棋胜!";
+                break;
+            case ChessType.WHITE:
+                winner.text = "白棋胜!";
+                break;
+            default:
+                break;
+        }
         gameStart = false;
         Debug.Log(turn + "赢了");
     }
