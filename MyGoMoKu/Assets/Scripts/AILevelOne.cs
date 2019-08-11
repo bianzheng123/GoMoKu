@@ -75,7 +75,7 @@ public class AILevelOne : Player
         
     }
 
-    private void setScore(int[] pos)
+    private void SetScore(int[] pos)
     {
         score[pos[0], pos[1]] = 0;
         CheckOneLine(pos,new int[2] { 0,1},1);
@@ -108,7 +108,7 @@ public class AILevelOne : Player
             {
                 if(ChessBoard.Instance.grid[i,j] == 0)
                 {
-                    setScore(new int[2] { i, j });
+                    SetScore(new int[2] { i, j });
                     if(score[i,j] >= maxScore)
                     {
                         maxScore = score[i, j];
