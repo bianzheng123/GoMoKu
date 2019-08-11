@@ -11,7 +11,7 @@ public class ChessBoard : MonoBehaviour
     public int[,] grid;//默认没下棋值为0，黑棋值为1，白棋值为2
     public GameObject[] prefabs;
     public float timer = 0;
-    public bool gameStart = true;
+    public bool gameStart = false;
     Transform parent;
     public Stack<Transform> chessStack = new Stack<Transform>();
 
