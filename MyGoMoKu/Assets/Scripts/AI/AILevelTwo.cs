@@ -47,6 +47,10 @@ public class AILevelTwo : AILevelOne
         toScore.Add("_aaaa_", 1000000);                 //活四
 
         toScore.Add("aaaaa", float.MaxValue);           //连五
+        //if(chessColor == ChessType.BLACK)
+        //{
+        //    Debug.Log(chessColor + " LevelTwo");
+        //}
     }
 
     protected override void CheckOneLine(int[] pos, int[] offset, int chessType)

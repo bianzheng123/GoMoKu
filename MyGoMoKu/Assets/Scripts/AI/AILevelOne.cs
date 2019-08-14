@@ -25,6 +25,10 @@ public class AILevelOne : Player
         toScore.Add("_aaaaa", float.MaxValue);
         toScore.Add("aaaaa_", float.MaxValue);
         toScore.Add("aaaaa", float.MaxValue);
+        //if (chessColor == ChessType.BLACK)
+        //{
+        //    Debug.Log(chessColor + " LevelOne");
+        //}
     }
 
     protected virtual void CheckOneLine(int[] pos, int[] offset,int chessType)

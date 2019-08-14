@@ -56,6 +56,10 @@ public class AILevelThree : Player
         toScore.Add("_aaaa_", 1000000);                 //活四
 
         toScore.Add("aaaaa", float.MaxValue);           //连五
+        //if (chessColor == ChessType.BLACK)
+        //{
+        //    Debug.Log(chessColor + " LevelThree");
+        //}
     }
 
     private float CheckOneLine(int[,] grid, int[] pos, int[] offset, int chessType)
