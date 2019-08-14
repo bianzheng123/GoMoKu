@@ -45,4 +45,23 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void ChangePlayer()
+    {
+        for(int i = 0; i < players.Count; i++)
+        {
+            if(players[i].chessColor == ChessType.BLACK)
+            {
+                SetPlayer2(i);
+            }else if(players[i].chessColor == ChessType.WHITE)
+            {
+                SetPlayer1(i);
+            }
+            else
+            {
+                players[i].chessColor = ChessType.WATCH;
+            }
+        }
+        SceneManager.LoadScene(1);
+    }
 }

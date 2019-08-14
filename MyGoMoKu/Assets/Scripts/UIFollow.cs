@@ -15,7 +15,6 @@ public class UIFollow : MonoBehaviour
     public void ReturnBtn()
     {
         SceneManager.LoadScene("01_Start");
-        Debug.Log("fsdfsdfsd");
     }
 
     public void ReplayBtn()
