@@ -36,6 +36,21 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("player2", i);
     }
 
+    /// <summary>
+    /// 如果是跟AI对战，就输入0;不是，输入1
+    /// </summary>
+    public void SetIsDouble(bool isDouble)
+    {
+        if (isDouble)
+        {
+            PlayerPrefs.SetInt("isDouble",1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("isDouble", 0);
+        }
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -62,6 +77,7 @@ public class GameManager : MonoBehaviour
                 players[i].chessColor = ChessType.WATCH;
             }
         }
+        Debug.Log("changePlayer");
         SceneManager.LoadScene(1);
     }
 }

@@ -2,15 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public ChessType chessColor;
 
-    protected void FixedUpdate()
+    protected Button retractBtn;
+
+    private bool isDouble = false;
+
+    protected virtual void Start()
+    {
+        retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
+        int boolIsDouble = PlayerPrefs.GetInt("isDouble");
+        //Debug.Log("isDouble: " + boolIsDouble);
+        isDouble = boolIsDouble == 1 ? true : false;
+    }
+
+    protected virtual void FixedUpdate()
     {
         if(ChessBoard.Instance.turn == chessColor && ChessBoard.Instance.timer > 0.3f)
         {
             PlayChess();
+        }
+        if(ChessBoard.Instance.timer < 0.3f && isDouble)
+        {
+            retractBtn.interactable = false;
+        }
+        else
+        {
+            retractBtn.interactable = true;
         }
 
     }

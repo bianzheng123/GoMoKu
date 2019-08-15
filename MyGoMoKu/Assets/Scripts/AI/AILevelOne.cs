@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class AILevelOne : Player
 {
     protected Dictionary<string, float> toScore = new Dictionary<string, float>();
     protected float[,] score = new float[15, 15];
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
         toScore.Add("_aa_", 100);
         toScore.Add("_aa", 50);
         toScore.Add("aa_", 50);

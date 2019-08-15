@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class AILevelTwo : AILevelOne
 {
     protected override void Start()
     {
+        retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
         toScore.Add("aa___", 100);                      //眠二
         toScore.Add("a_a__", 100);
         toScore.Add("___aa", 100);

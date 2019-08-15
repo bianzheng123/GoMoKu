@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class MiniMaxNode
 {
     public int chess;//代表在这个点决策的类型
@@ -13,8 +14,9 @@ public class AILevelThree : Player
 {
     private Dictionary<string, float> toScore = new Dictionary<string, float>();
 
-    private void Start()
+    protected override void Start()
     {
+        retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
         toScore.Add("aa___", 100);                      //眠二
         toScore.Add("a_a__", 100);
         toScore.Add("___aa", 100);
