@@ -98,13 +98,13 @@ public class AILevelOne : Player
     {
         if(ChessBoard.Instance.chessStack.Count == 0)
         {
+            Debug.Log(ChessBoard.Instance.chessStack.Count);
             if (ChessBoard.Instance.PlayChess(new int[2] { 7, 7 }))
             {
                 ChessBoard.Instance.timer = 0;
             }
             return;
         }
-
         float maxScore = 0;
         int []maxPos = new int[2] { 0, 0 };
         for(int i = 0; i < 15; i++)

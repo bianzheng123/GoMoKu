@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
                 players[i].chessColor = ChessType.WATCH;
             }
         }
-        Debug.Log("changePlayer");
         SceneManager.LoadScene(1);
     }
 }
