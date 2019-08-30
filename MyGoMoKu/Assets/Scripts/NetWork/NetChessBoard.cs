@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class NetChessBoard : MonoBehaviour
+public class NetChessBoard : NetworkBehaviour
 {
     static NetChessBoard _instance;
 
@@ -15,6 +16,10 @@ public class NetChessBoard : MonoBehaviour
     Transform parent;
     public Text winner;
     public Stack<Transform> chessStack = new Stack<Transform>();
+
+    [SyncVar]
+    public int playerNumber = 0;
+
 
     public static NetChessBoard Instance
     {

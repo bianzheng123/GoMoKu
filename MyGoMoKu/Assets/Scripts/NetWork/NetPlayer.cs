@@ -8,14 +8,31 @@ using UnityEngine.EventSystems;
 
 public class NetPlayer : NetworkBehaviour
 {
-    public ChessType chessColor;
+    public ChessType chessColor = ChessType.BLACK;
 
     //protected Button retractBtn;
 
     protected virtual void Start()
     {
         //retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
-
+        
+        if (isLocalPlayer)
+        {
+            NetChessBoard.Instance.playerNumber++;
+            if(NetChessBoard.Instance.playerNumber == 1)
+            {
+                chessColor = ChessType.BLACK;
+            }else if(NetChessBoard.Instance.playerNumber == 2)
+            {
+                chessColor = ChessType.WHITE;
+            }
+            else
+            {
+                chessColor = ChessType.WATCH;
+            }
+        }
+        
+        Debug.Log(NetChessBoard.Instance.playerNumber);
     }
 
     protected virtual void FixedUpdate()
