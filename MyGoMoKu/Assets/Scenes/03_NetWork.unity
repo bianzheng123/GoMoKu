@@ -941,7 +941,7 @@ MonoBehaviour:
   - {fileID: 1858384217449814, guid: 66b1112d47188ea4a9b761cb0bcd69a6, type: 2}
   timer: 0
   gameStart: 1
-  winner: {fileID: 0}
+  winner: {fileID: 1649215718}
   playerNumber: 0
 --- !u!114 &935634402
 MonoBehaviour:

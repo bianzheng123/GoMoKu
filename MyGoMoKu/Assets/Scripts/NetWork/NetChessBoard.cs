@@ -12,6 +12,7 @@ public class NetChessBoard : NetworkBehaviour
     public int[,] grid;//默认没下棋值为0，黑棋值为1，白棋值为2
     public GameObject[] prefabs;
     public float timer = 0;
+    [SyncVar]
     public bool gameStart = true;
     Transform parent;
     public Text winner;
