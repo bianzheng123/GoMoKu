@@ -17,7 +17,7 @@ public class NetChessBoard : NetworkBehaviour
     Transform parent;
     public Text winner;
     public Stack<Transform> chessStack = new Stack<Transform>();
-
+    private ChessType win;
     [SyncVar]
     public int playerNumber = 0;
 
@@ -69,7 +69,9 @@ public class NetChessBoard : NetworkBehaviour
             grid[pos[0], pos[1]] = 1;
             if (CheckWinner(pos))
             {
-                GameEnd();
+                //GameEnd();
+                gameStart = false;
+                win = turn;
             }
             turn = ChessType.WHITE;
         }
@@ -82,7 +84,9 @@ public class NetChessBoard : NetworkBehaviour
             grid[pos[0], pos[1]] = 2;
             if (CheckWinner(pos))
             {
-                GameEnd();
+                //GameEnd();
+                gameStart = false;
+                win = turn;
             }
             turn = ChessType.BLACK;
         }
@@ -90,10 +94,10 @@ public class NetChessBoard : NetworkBehaviour
         return true;
     }
 
-    private void GameEnd()
+    public void GameEnd()
     {
         winner.transform.parent.parent.gameObject.SetActive(true);
-        switch (turn)
+        switch (win)
         {
             case ChessType.WATCH:
                 break;

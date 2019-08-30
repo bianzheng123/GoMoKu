@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 
 public class NetPlayer : NetworkBehaviour
 {
+    [SyncVar]
     public ChessType chessColor = ChessType.BLACK;
 
     //protected Button retractBtn;
@@ -18,18 +19,7 @@ public class NetPlayer : NetworkBehaviour
         
         if (isLocalPlayer)
         {
-            NetChessBoard.Instance.playerNumber++;
-            if(NetChessBoard.Instance.playerNumber == 1)
-            {
-                chessColor = ChessType.BLACK;
-            }else if(NetChessBoard.Instance.playerNumber == 2)
-            {
-                chessColor = ChessType.WHITE;
-            }
-            else
-            {
-                chessColor = ChessType.WATCH;
-            }
+            CmdSetPlayer();
         }
         
     }
@@ -39,6 +29,10 @@ public class NetPlayer : NetworkBehaviour
         if (NetChessBoard.Instance.turn == chessColor && NetChessBoard.Instance.timer > 0.3f && isLocalPlayer)
         {
             PlayChess();
+        }
+        if (chessColor != ChessType.WATCH && isLocalPlayer && !NetChessBoard.Instance.gameStart)
+        {
+            NetChessBoard.Instance.GameEnd();
         }
         //if (NetChessBoard.Instance.timer < 0.3f && isDouble)
         //{
@@ -65,6 +59,24 @@ public class NetPlayer : NetworkBehaviour
         if (NetChessBoard.Instance.PlayChess(new int[2] { (int)(pos.x + 7.5f), (int)(pos.y + 7.5f) }))
         {
             NetChessBoard.Instance.timer = 0;
+        }
+    }
+
+    [Command]
+    private void CmdSetPlayer()
+    {
+        NetChessBoard.Instance.playerNumber++;
+        if (NetChessBoard.Instance.playerNumber == 1)
+        {
+            chessColor = ChessType.BLACK;
+        }
+        else if (NetChessBoard.Instance.playerNumber == 2)
+        {
+            chessColor = ChessType.WHITE;
+        }
+        else
+        {
+            chessColor = ChessType.WATCH;
         }
     }
 }
