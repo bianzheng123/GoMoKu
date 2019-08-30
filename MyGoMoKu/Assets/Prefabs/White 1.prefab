@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4775706637942478}
   - component: {fileID: 212346691096190028}
+  - component: {fileID: 114094474311277986}
   m_Layer: 0
-  m_Name: White
+  m_Name: White 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +41,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114094474311277986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858384217449814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 102
+    i1: 177
+    i2: 17
+    i3: 45
+    i4: 71
+    i5: 24
+    i6: 142
+    i7: 164
+    i8: 169
+    i9: 183
+    i10: 97
+    i11: 203
+    i12: 11
+    i13: 205
+    i14: 105
+    i15: 166
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212346691096190028
 SpriteRenderer:
   m_ObjectHideFlags: 1

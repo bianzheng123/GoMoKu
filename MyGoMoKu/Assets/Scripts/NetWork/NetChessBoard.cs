@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class NetChessBoard : NetworkBehaviour
 {
     static NetChessBoard _instance;
-
+    [SyncVar]
     public ChessType turn = ChessType.BLACK;
     public int[,] grid;//默认没下棋值为0，黑棋值为1，白棋值为2
     public GameObject[] prefabs;
@@ -62,6 +62,7 @@ public class NetChessBoard : NetworkBehaviour
         if (turn == ChessType.BLACK)
         {
             GameObject go = Instantiate(prefabs[0], new Vector2(pos[0] - 7, pos[1] - 7), Quaternion.identity);
+            NetworkServer.Spawn(go);
             chessStack.Push(go.transform);
             go.transform.SetParent(parent);
             grid[pos[0], pos[1]] = 1;
@@ -74,6 +75,7 @@ public class NetChessBoard : NetworkBehaviour
         else if (turn == ChessType.WHITE)
         {
             GameObject go = Instantiate(prefabs[1], new Vector2(pos[0] - 7, pos[1] - 7), Quaternion.identity);
+            NetworkServer.Spawn(go);
             chessStack.Push(go.transform);
             go.transform.SetParent(parent);
             grid[pos[0], pos[1]] = 2;

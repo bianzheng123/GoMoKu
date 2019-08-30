@@ -12,7 +12,7 @@ public class NetPlayer : NetworkBehaviour
 
     //protected Button retractBtn;
 
-    protected virtual void Start()
+    protected void Start()
     {
         //retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
         
@@ -32,12 +32,11 @@ public class NetPlayer : NetworkBehaviour
             }
         }
         
-        Debug.Log(NetChessBoard.Instance.playerNumber);
     }
 
-    protected virtual void FixedUpdate()
+    protected void FixedUpdate()
     {
-        if (NetChessBoard.Instance.turn == chessColor && NetChessBoard.Instance.timer > 0.3f)
+        if (NetChessBoard.Instance.turn == chessColor && NetChessBoard.Instance.timer > 0.3f && isLocalPlayer)
         {
             PlayChess();
         }
@@ -52,16 +51,20 @@ public class NetPlayer : NetworkBehaviour
 
     }
 
-    protected virtual void PlayChess()
+    protected void PlayChess()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())//表示是否点击到游戏物体
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //print((int)(pos.x + 7.5f) + " " + (int)(pos.y + 7.5f));
-            if (NetChessBoard.Instance.PlayChess(new int[2] { (int)(pos.x + 7.5f), (int)(pos.y + 7.5f) }))
-            {
-                NetChessBoard.Instance.timer = 0;
-            }
+            CmdChess(pos);
+        }
+    }
+    [Command]
+    private void CmdChess(Vector2 pos)
+    {
+        if (NetChessBoard.Instance.PlayChess(new int[2] { (int)(pos.x + 7.5f), (int)(pos.y + 7.5f) }))
+        {
+            NetChessBoard.Instance.timer = 0;
         }
     }
 }

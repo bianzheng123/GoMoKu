@@ -498,7 +498,9 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1693364051597442, guid: 3c9862a434031c34b82244a4e59dcdbb, type: 2}
+  - {fileID: 1858384217449814, guid: 66b1112d47188ea4a9b761cb0bcd69a6, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -749,7 +751,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 729184580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 328.4, y: -29.523209, z: 0}
+  m_LocalPosition: {x: 328.4, y: -63.69255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1662967361}
@@ -935,11 +937,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turn: 1
   prefabs:
-  - {fileID: 6506006111170835444, guid: 6a5b86f506209aa4c85af5c268653dcc, type: 2}
-  - {fileID: 3426259752023369231, guid: 82cd0c6727b586f40ad15469e9d5d761, type: 2}
+  - {fileID: 1693364051597442, guid: 3c9862a434031c34b82244a4e59dcdbb, type: 2}
+  - {fileID: 1858384217449814, guid: 66b1112d47188ea4a9b761cb0bcd69a6, type: 2}
   timer: 0
   gameStart: 1
   winner: {fileID: 0}
+  playerNumber: 0
 --- !u!114 &935634402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,7 +1428,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431143742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 328.39996, y: -78.87489, z: 0}
+  m_LocalPosition: {x: 328.39996, y: -113.044235, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462535504}
@@ -1942,8 +1945,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1761240283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 398.5, y: 139, z: 0}
-  m_LocalScale: {x: 0.99625, y: 0.99625, z: 0.99625}
+  m_LocalPosition: {x: 315.5, y: 137, z: 0}
+  m_LocalScale: {x: 0.78875, y: 0.78875, z: 0.78875}
   m_Children:
   - {fileID: 729184581}
   - {fileID: 1431143743}
