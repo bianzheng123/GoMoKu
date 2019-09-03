@@ -11,22 +11,26 @@ public class NetPlayer : NetworkBehaviour
     [SyncVar]
     public ChessType chessColor = ChessType.BLACK;
 
-    //protected Button retractBtn;
+    protected Button retractBtn;
 
     protected void Start()
     {
-        //retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
-        
+
+
         if (isLocalPlayer)
         {
             CmdSetPlayer();
+            if(chessColor == ChessType.WATCH)
+                return;
+            retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
+            retractBtn.onClick.AddListener(RetractBtn);
         }
         
     }
 
     protected void FixedUpdate()
     {
-        if (NetChessBoard.Instance.turn == chessColor && NetChessBoard.Instance.timer > 0.3f && isLocalPlayer)
+        if (NetChessBoard.Instance.turn == chessColor && NetChessBoard.Instance.timer > 0.3f && isLocalPlayer && NetChessBoard.Instance.playerNumber > 1)
         {
             PlayChess();
         }
@@ -78,5 +82,16 @@ public class NetPlayer : NetworkBehaviour
         {
             chessColor = ChessType.WATCH;
         }
+    }
+
+    public void RetractBtn()
+    {
+        CmdRetractBtn();
+    }
+
+    [Command]
+    public void CmdRetractBtn()
+    {
+        NetChessBoard.Instance.RetractChess();
     }
 }
