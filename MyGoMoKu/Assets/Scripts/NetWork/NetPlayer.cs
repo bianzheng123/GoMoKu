@@ -38,15 +38,28 @@ public class NetPlayer : NetworkBehaviour
         {
             NetChessBoard.Instance.GameEnd();
         }
-        //if (NetChessBoard.Instance.timer < 0.3f && isDouble)
-        //{
-        //    retractBtn.interactable = false;
-        //}
-        //else
-        //{
-        //    retractBtn.interactable = true;
-        //}
+        if (isLocalPlayer)
+        {
+            ChangeBtnColor();
+        }
 
+    }
+
+    void ChangeBtnColor()
+    {
+        if(chessColor == ChessType.WATCH)
+        {
+            retractBtn.interactable = false;
+            return;
+        }
+        if (NetChessBoard.Instance.turn == chessColor)
+        {
+            retractBtn.interactable = true;
+        }
+        else
+        {
+            retractBtn.interactable = false;
+        }
     }
 
     protected void PlayChess()
