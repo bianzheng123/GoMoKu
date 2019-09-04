@@ -25,7 +25,7 @@ public class NetPlayer : NetworkBehaviour
             retractBtn = GameObject.Find("RetractBtn").GetComponent<Button>();
             retractBtn.onClick.AddListener(RetractBtn);
         }
-        
+        Debug.Log(Network.player.ipAddress);
     }
 
     protected void FixedUpdate()

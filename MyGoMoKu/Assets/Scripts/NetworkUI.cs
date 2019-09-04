@@ -13,6 +13,7 @@ public class NetworkUI : NetworkBehaviour {
     }
     public void StartClient()
     {
+        NetworkManager.singleton.networkAddress = GameObject.Find("IP").GetComponent<InputField>().text;
         NetworkManager.singleton.StartClient();
     }
     public void StopHost()

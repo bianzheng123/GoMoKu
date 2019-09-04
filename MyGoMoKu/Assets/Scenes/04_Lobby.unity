@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 752707235}
   - component: {fileID: 752707234}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: IP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

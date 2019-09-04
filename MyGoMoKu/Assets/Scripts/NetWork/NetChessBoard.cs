@@ -17,6 +17,7 @@ public class NetChessBoard : NetworkBehaviour
     Transform parent;
     public Text winner;
     public Stack<Transform> chessStack = new Stack<Transform>();
+    [SyncVar]
     private ChessType win;
     [SyncVar]
     public int playerNumber = 0;
