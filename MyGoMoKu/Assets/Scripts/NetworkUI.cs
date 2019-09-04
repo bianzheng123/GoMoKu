@@ -34,23 +34,21 @@ public class NetworkUI : NetworkBehaviour {
     }
     private void OnEnable()
     {
-        Debug.Log("execute");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded");
-        switch (scene.buildIndex)
-        {
-            case 0:
-                OfflineSet();
-                break;
-            case 1:
-                OnlineSet();
-                break;
-            default:
-                break;
-        }
+        //switch (scene.buildIndex)
+        //{
+        //    case 0:
+        //        OfflineSet();
+        //        break;
+        //    case 1:
+        //        OnlineSet();
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
     private void OnDisable()
     {
