@@ -1531,7 +1531,7 @@ Prefab:
     - target: {fileID: 114127851122262580, guid: 1cb7212e63227dd41840bb9a00a48ba8,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1638940541491390, guid: 1cb7212e63227dd41840bb9a00a48ba8, type: 2}
       propertyPath: m_IsActive
@@ -1546,6 +1546,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnlineScene
       value: 03_Network
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127851122262580, guid: 1cb7212e63227dd41840bb9a00a48ba8,
+        type: 2}
+      propertyPath: showGUI
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cb7212e63227dd41840bb9a00a48ba8, type: 2}
@@ -2308,7 +2313,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813221813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 318, y: 139, z: 0}
+  m_LocalPosition: {x: 316.5, y: 137, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 765489550}

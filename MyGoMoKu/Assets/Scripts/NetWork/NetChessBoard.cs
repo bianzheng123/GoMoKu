@@ -176,4 +176,10 @@ public class NetChessBoard : NetworkBehaviour
             Destroy(pos.gameObject);
         }
     }
+
+    public void OnQuitBtn()
+    {
+        NetworkManager.singleton.matchMaker.DropConnection(NetworkManager.singleton.matchInfo.networkId,NetworkManager.singleton.matchInfo.nodeId,0,NetworkManager.singleton.OnDropConnection);
+        NetworkManager.singleton.StopHost();
+    }
 }
