@@ -18,3 +18,5 @@
 - 使用UNet进行网络编程
 
 对于知识点，可以翻看我的笔记，在learning-notes/Unity-Project/五子棋学习笔记01(02)
+
+unity版本：2017.2.0f3
